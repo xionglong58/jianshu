@@ -1,4 +1,4 @@
-import {createGlobalStyle} from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -28,6 +28,9 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
+input:focus{
+outline:none;
+}
 ol, ul {
 	list-style: none;
 }
@@ -43,4 +46,4 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-`
+`;
