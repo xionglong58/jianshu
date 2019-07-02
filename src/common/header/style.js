@@ -69,19 +69,7 @@ export const SearchWrapper = styled.div`
       background:#7c7c7c;
     }
   }
-  .slide-enter{
-    width:178px;
-    transition:all 0.2s ease-out;
-  }
-  .slide-enter-active{
-    width:420px;
-  }
-  .slide-exit{
-    transition:all 0.2s ease-out;
-  }
-  .slide-exit-active{
-    width:178px;
-  }
+
 `;
 
 export const NavSearch = styled.input.attrs({ placeholder: "搜索" })`
@@ -96,6 +84,19 @@ export const NavSearch = styled.input.attrs({ placeholder: "搜索" })`
   font-size: 15px;
   &.focused{
     width:220px;
+  }
+  &.slide-enter{
+    width:178px;
+    transition:all 0.2s ease-out;
+  }
+  &.slide-enter-active{
+    width:220px;
+  }
+  &.slide-exit{
+    transition:all 0.2s ease-out;
+  }
+  &.slide-exit-active{
+    width:178px;
   }
 `;
 export const Addition = styled.div`
