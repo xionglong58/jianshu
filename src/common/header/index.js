@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { CSSTransition } from "react-transition-group";
-// import store from '../../store/index';
 import { connect } from "react-redux";
 import { actionCreators } from "./store/index";
 import {
@@ -17,36 +16,23 @@ import {
 
 class Header extends Component {
   showListArea(infoFocus) {
-    const {list}=this.props;
-    if (infoFocus) {
+    const { list, mouseEnter, page, totalPage, hanlleMouseEnter, hanlleMouseLeave ,handleChangePage} = this.props;
+    const newList=list.toJS()
+    const pageList=[];
+    for(let i=(page-1)*10;i<page*10;i++){
+      pageList.push(
+        <li><a href="#">{newList[i]}</a></li>
+      )
+    }
+    if (infoFocus || mouseEnter) {
       return (
-        <SearchInfo>
+        <SearchInfo onMouseEnter={hanlleMouseEnter} onMouseLeave={hanlleMouseLeave}>
           <div>
             热门搜索
-            <span>换一批</span>
+            <span onClick={handleChangePage(page,totalPage)}>换一批</span>
           </div>
           <div className="info">
-            {list.map(item =>{
-              return <li key={item}><a href="#">{item}</a></li>
-            })}
-            {/* <li>
-              <a href="#">金融日说</a>
-            </li>
-            <li>
-              <a href="#">React-redux</a>
-            </li>
-            <li>
-              <a href="#">CSS</a>
-            </li>
-            <li>
-              <a href="#">React-immutable</a>
-            </li>
-            <li>
-              <a href="#">Axios</a>
-            </li>
-            <li>
-              <a href="#">Jquery</a>
-            </li> */}
+            {pageList}
           </div>
         </SearchInfo>
       );
@@ -54,7 +40,7 @@ class Header extends Component {
     return null;
   }
   render() {
-    const {focus,handleInputFocus,handleInputBlur}=this.props;
+    const { focus, handleInputFocus, handleInputBlur } = this.props;
     return (
       <HeaderWrapper>
         <Logo href="/" />
@@ -99,8 +85,11 @@ class Header extends Component {
 
 const mapStateToProps = state => {
   return {
-    focus: state.getIn(['header','focus']),
-    list: state.getIn(['header','list'])
+    focus: state.getIn(['header', 'focus']),
+    mouseEnter: state.getIn(['header', 'mouseEnter']),
+    page: state.getIn(['header', 'page']),
+    totalPage: state.getIn(['header', 'totalPage']),
+    list: state.getIn(['header', 'list'])
   };
 };
 
@@ -112,6 +101,15 @@ const mapDispatchToProps = dispatch => {
     },
     handleInputBlur() {
       dispatch(actionCreators.getHeaderOnBlur());
+    },
+    hanlleMouseEnter() {
+      dispatch(actionCreators.getMouseEnterAction())
+    },
+    hanlleMouseLeave() {
+      dispatch(actionCreators.getMouseLeaveAction())
+    },
+    handleChangePage(page,totalPage){
+      dispatch(actionCreators.getChangePage(page))
     }
   };
 };

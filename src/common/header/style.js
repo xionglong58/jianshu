@@ -75,7 +75,7 @@ export const SearchInfo = styled.div`
   left: 0px;
   top: 40px;
   margin-top: 9px;
-  height: 200px;
+  // height: 200px;
   width: 220px;
   background-color: #fff;
   border-radius: 4px;
