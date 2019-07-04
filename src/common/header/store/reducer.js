@@ -1,17 +1,19 @@
 import {actionTypes} from './index'
-const defaultData={
-    focus:false
-}
+import {fromJS} from 'immutable'
+const defaultData=fromJS({
+    focus:false,
+    list:['1','2']
+})
+
 export default (state=defaultData,action)=>{
     if(action.type===actionTypes.HEADER_ONFOCUS_ACTION){
-        const newState=JSON.parse(JSON.stringify(state));
-        newState.focus=true;
-        return newState;
+        return state.set('focus',true);
     }
     if(action.type===actionTypes.HEADER_ONBLUR_ACTION){
-        const newState=JSON.parse(JSON.stringify(state));
-        newState.focus=false;
-        return newState;
+        return state.set('focus',false);
+    }
+    if(action.type===actionTypes.HEADER_UPDATA_LIST_ACTION){
+        return state.set('list',(action.list));
     }
     
     return state;

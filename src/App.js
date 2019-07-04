@@ -11,6 +11,7 @@ const App = () => {
       <GlobalIconfont />
       <Provider store={store}>
       <Header />
+      <div style={{height:'100px',backgroundColor: '#008080'}}>footer</div>
       </Provider>
     </Fragment>
   );

@@ -26,8 +26,8 @@ export const Nav = styled.div`
   margin-right: 70px;
   box-sizing: border-box;
   margin: 0 auto;
-  span{
-    font-size:17px;
+  span {
+    font-size: 17px;
   }
 `;
 
@@ -50,10 +50,10 @@ export const NavItem = styled.div`
 export const SearchWrapper = styled.div`
   float: left;
   position: relative;
-  line-height:36px;
-  height:36px;
-  margin-top:10px;
-  height:36px; 
+  line-height: 36px;
+  height: 36px;
+  margin-top: 10px;
+  height: 36px;
   .iconfont {
     position: absolute;
     right: 6px;
@@ -65,11 +65,63 @@ export const SearchWrapper = styled.div`
     border-radius: 15px;
     /* background:#f1f2f3; */
     border: none;
-    &.focused{
-      background:#7c7c7c;
+    &.focused {
+      background: #7c7c7c;
     }
   }
+`;
+export const SearchInfo = styled.div`
+  position: absolute;
+  left: 0px;
+  top: 40px;
+  margin-top: 9px;
+  height: 200px;
+  width: 220px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  div {
+    font-size: 14px;
+    margin-top: 20px;
+    margin-left: 10px;
+    &.info{
+      margin:20px;
+    }
+  }
+  span {
+    float: right;
+    font-size: 13px;
+    margin-right: 10px;
+  }
+  div li {
+    list-style: none;
+    line-height:20px;
+    float:left;
+    display: inline;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 12px;
+    margin-right: 15px;
+    margin-top:10px;
+    border: 1px solid #969696;  
+    a {
+      color: #969696;
+      text-decoration: none;    
+    }
+    a:link ,
+    a:visited,
+    a:focus,
+    a:hover,
 
+    {
+      color: #2f2f2f;
+      text-decoration: none;
+    }
+    a:active,
+    a:hover {
+      outline: 0;
+    }
+  }
 `;
 
 export const NavSearch = styled.input.attrs({ placeholder: "搜索" })`
@@ -82,21 +134,21 @@ export const NavSearch = styled.input.attrs({ placeholder: "搜索" })`
   padding: 0 36px 0 20px;
   background: #eee;
   font-size: 15px;
-  &.focused{
-    width:220px;
+  &.focused {
+    width: 220px;
   }
-  &.slide-enter{
-    width:178px;
-    transition:all 0.2s ease-out;
+  &.slide-enter {
+    width: 178px;
+    transition: all 0.2s ease-out;
   }
-  &.slide-enter-active{
-    width:220px;
+  &.slide-enter-active {
+    width: 220px;
   }
-  &.slide-exit{
-    transition:all 0.2s ease-out;
+  &.slide-exit {
+    transition: all 0.2s ease-out;
   }
-  &.slide-exit-active{
-    width:178px;
+  &.slide-exit-active {
+    width: 178px;
   }
 `;
 export const Addition = styled.div`
