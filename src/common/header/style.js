@@ -4,7 +4,6 @@ import logo from "../../static/nav-logo.png";
 export const HeaderWrapper = styled.div`
   position: relative;
   height: 56px;
-  /* background: red; */
   border-bottom: 2px solid #f0f0f0;
   min-width: 1080px;
 `;
@@ -21,8 +20,6 @@ export const Logo = styled.a`
 export const Nav = styled.div`
   width: 50%;
   height: 56px;
-  /* background:red; */
-
   margin-right: 70px;
   box-sizing: border-box;
   margin: 0 auto;
@@ -54,7 +51,7 @@ export const SearchWrapper = styled.div`
   height: 36px;
   margin-top: 10px;
   height: 36px;
-  .iconfont {
+  .zoom{
     position: absolute;
     right: 6px;
     bottom: 1px;
@@ -75,6 +72,7 @@ export const SearchInfo = styled.div`
   left: 0px;
   top: 40px;
   margin-top: 9px;
+  padding-bottom:9px;
   // height: 200px;
   width: 220px;
   background-color: #fff;
@@ -92,6 +90,7 @@ export const SearchInfo = styled.div`
     float: right;
     font-size: 13px;
     margin-right: 10px;
+    cursor:pointer;
   }
   div li {
     list-style: none;
@@ -104,23 +103,29 @@ export const SearchInfo = styled.div`
     margin-right: 15px;
     margin-top:10px;
     border: 1px solid #969696;  
-    a {
-      color: #969696;
-      text-decoration: none;    
-    }
-    a:link ,
-    a:visited,
-    a:focus,
-    a:hover,
+  }
+  .spin{
+    dispaly:block;
+    transition:all 0.4s ease-in;
+    transform-origin:center center;
+    transform:rotate(90deg);
+  }
+  a {
+    color: #969696;
+    text-decoration: none;    
+  }
+  a:link ,
+  a:visited,
+  a:focus,
+  a:hover,
 
-    {
-      color: #2f2f2f;
-      text-decoration: none;
-    }
-    a:active,
-    a:hover {
-      outline: 0;
-    }
+  {
+    color: #2f2f2f;
+    text-decoration: none;
+  }
+  a:active,
+  a:hover {
+    outline: 0;
   }
 `;
 
@@ -129,7 +134,6 @@ export const NavSearch = styled.input.attrs({ placeholder: "搜索" })`
   height: 36px;
   box-sizing: border-box;
   border-radius: 18px;
-  /* margin-top: 10px; */
   border: none;
   padding: 0 36px 0 20px;
   background: #eee;
@@ -156,10 +160,8 @@ export const Addition = styled.div`
   right: 0;
   top: 0;
   height: 56px;
-  /* background:red; */
 `;
 export const Button = styled.button`
-  /* float: right; */
   height: 36px;
   line-height: 36px;
   border-radius: 18px;
