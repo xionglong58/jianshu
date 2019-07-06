@@ -1,18 +1,36 @@
-import Mock from 'mockjs'
+import Mock from 'mockjs';
+// import axios from 'axios';
 import React from 'react';
-const MockTest = () => {
-    var data = Mock.mock({
-        // 属性 list 的值是一个数组，其中含有 1 到 10 个元素
-        'list|1-10': [{
-            // 属性 id 是一个自增数，起始值为 1，每次增 1
-            'id|+1': 1
-        }]
-    })
-    // 输出结果
-    console.log(JSON.stringify(data))
 
-    return (<div>MockTest</div>);
+const hotWord = (num) => {
+    let listPool = [];
+    for (let i = 0; i < num; i++) {
+        listPool.push(Mock.Random.cword(1, 5));
+    }
+    return { "data": listPool };
+}
+// console.log(Mock.Random.dataImage('32x32', '#50B347', '#FFF', 'Mock.js'));
+export const MockJsonData = () => {
+    Mock.mock('api/json/hotword', hotWord(50));
+    return (true);
 
 }
+export const MockTopicData = () => {
+    return Mock.mock({
+        // "topicList|+1": [
+        //     {
+        //         "topicListItem": {
+        //             "id|+1": 1,
+        //             "title|+1": Mock.Random.cword(1, 5),
+        //             "imgUrl|+1": Mock.Random.dataImage('32x32', '#50B347', '#FFF', 'Mock.js')
+        //         }
+        //     }]
+        "topicList|6": [{  
+            'title': '@ctitle',  
+            'id|+1': 1,  
+            'imgUrl': Mock.Random.dataImage('32x32', '#50B347', '#FFF', 'Mock.js')
+        }]
+    })
+}
 
-export default MockTest;
+// Mock.mock('api/json/test', data)

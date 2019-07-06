@@ -7,10 +7,12 @@ import { GlobalIconfont } from "./static/iconfont/iconfont";
 import store from './store/index';
 import Home from './pages/home';
 import Detail from './pages/detail';
-import MockTest from './mock';
+import {MockJsonData,MockTopicData} from './mock';
 const App = () => {
+  // console.log(MockTopicData());
   return (
     <Fragment>
+      <MockJsonData/>
       <GlobalStyle />
       <GlobalIconfont />
       <Provider store={store}>
@@ -23,7 +25,7 @@ const App = () => {
           <div style={{ height: '100px', backgroundColor: '#008080' }}>footer</div>
         </Fragment>
       </Provider>
-      <MockTest/>
+      
     </Fragment >
       );
     };

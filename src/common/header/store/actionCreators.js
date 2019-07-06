@@ -15,14 +15,14 @@ const updateList = (list) => {
   return {
     type: actionTypes.HEADER_UPDATA_LIST_ACTION,
     list: fromJS(list.data),
-    totalPage: Math.ceil(list.data.length / 10)
+    totalPage: Math.ceil( list.data.length / 10)
   }
 }
 export const getList = () => {
   return dispatch => {
     axios
       .get(
-        "api/headerList.json"
+        "api/json/hotword"
       )
       .then(res => {
         dispatch(updateList(res.data))

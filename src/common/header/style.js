@@ -69,6 +69,7 @@ export const SearchWrapper = styled.div`
 `;
 export const SearchInfo = styled.div`
   position: absolute;
+  Z-index:10;
   left: 0px;
   top: 40px;
   margin-top: 9px;
