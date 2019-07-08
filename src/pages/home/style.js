@@ -80,20 +80,43 @@ width:500px;
     color:#999;
 }
 `;
-export const RecommendWrapper=styled.div`
+export const RecommendWrapper = styled.div`
 margin:20px 0px;
-`  
-export const RecommendIrem=styled.div`
+`
+export const RecommendItem = styled.div`
 width:260px;
 height:50px;
 background:pink;
 border-radius:5px;
 margin-top:10px;
 line-height:50px;
-padding-left:20px;
+// padding-left:20px;
+text-align:center;
 color:#f1f2f3;
 font-size:15px;
 font-weight:bold;
-background:url(${(props)=>props.imgUrl});
-// background-size:contain;
-`
+background:url(${(props) => props.imgUrl});
+cursor:pointer;
+`;
+export const ReadMore = styled.div`
+margin:30px 0px;
+width:100%;
+height:40px;
+color:#f1f2f3;
+background:#333;
+border-radius:20px;
+line-height:40px;
+text-align:center;
+cursor:pointer;
+`;
+export const ScrollToTop=styled.div`
+position:fixed;
+height:40px;
+width:80px;
+right:30px;
+bottom:30px;
+border:1px solid #333;
+line-height:40px;
+text-align:center;
+cursor:pointer;
+`;

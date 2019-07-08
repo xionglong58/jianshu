@@ -45,7 +45,9 @@ const homeApi={
 
 export const MockJsonData = () => {
     Mock.mock('api/json/hotword', hotWord(50));
-    Mock.mock('api/homeApi', homeApi);    
+    Mock.mock('api/homeApi', homeApi);     
+    Mock.mock('api/homeApi/moreArticle', MockListData()); 
+    
     return (true);
 }
 // Mock.mock('api/json/test', data)
