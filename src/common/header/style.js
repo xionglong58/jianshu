@@ -7,7 +7,7 @@ export const HeaderWrapper = styled.div`
   border-bottom: 2px solid #f0f0f0;
   min-width: 1080px;
 `;
-export const Logo = styled.a`
+export const Logo = styled.div`
   position: absolute;
   left: 0px;
   top: 0px;
@@ -16,6 +16,7 @@ export const Logo = styled.a`
   width: 100px;
   background: url(${logo});
   background-size: contain;
+  cursor:pointer;
 `;
 export const Nav = styled.div`
   width: 50%;

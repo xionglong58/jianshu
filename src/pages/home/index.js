@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import List from './components/List';
 import Recommend from './components/Recommend';
@@ -7,7 +7,7 @@ import Writer from './components/Writer';
 import { HomeWrapper, HomeRight, HomeLeft, ScrollToTop } from './style';
 import { actionCreators } from './store';
 // import axios from 'axios';
-class Home extends Component {
+class Home extends PureComponent {
     componentDidMount() {
         this.props.HandleGetHomeApi();
         this.bindEvents();

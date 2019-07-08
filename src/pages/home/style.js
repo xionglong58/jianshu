@@ -62,6 +62,7 @@ border-bottom:1px solid  #f0f0f0;
     width:125px;
     border-radius:10px;
 }
+cursor:pointer;
 
 `;
 
