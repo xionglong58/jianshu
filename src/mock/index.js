@@ -9,7 +9,6 @@ const hotWord = (num) => {
     }
     return { "data": listPool };
 }
-// console.log(Mock.Random.dataImage('32x32', '#50B347', '#FFF', 'Mock.js'));
 export const MockJsonData = () => {
     Mock.mock('api/json/hotword', hotWord(50));
     return (true);
@@ -26,9 +25,9 @@ export const MockTopicData = () => {
         //         }
         //     }]
         "topicList|6": [{  
-            'title': '@ctitle',  
+            'title': '@ctitle(2,4)',  
             'id|+1': 1,  
-            'imgUrl': Mock.Random.dataImage('32x32', '#50B347', '#FFF', 'Mock.js')
+            'imgUrl': Mock.Random.dataImage('32x32', '#50B347', '#FFF')
         }]
     })
 }

@@ -7,9 +7,8 @@ import { GlobalIconfont } from "./static/iconfont/iconfont";
 import store from './store/index';
 import Home from './pages/home';
 import Detail from './pages/detail';
-import {MockJsonData,MockTopicData} from './mock';
+import {MockJsonData} from './mock';
 const App = () => {
-  // console.log(MockTopicData());
   return (
     <Fragment>
       <MockJsonData/>

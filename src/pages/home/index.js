@@ -4,9 +4,7 @@ import Recommend from './components/Recommend';
 import Topic from './components/Topic';
 import Writer from './components/Writer';
 import { HomeWrapper, HomeRight, HomeLeft } from './style';
-
 class Home extends Component {
-    // state = {  }
     render() {
         return (
             <HomeWrapper>
@@ -18,10 +16,8 @@ class Home extends Component {
                     <Recommend />
                     <Writer/>
                 </HomeLeft>
-
             </HomeWrapper>
         );
     }
 }
-
 export default Home;
