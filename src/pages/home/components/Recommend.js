@@ -1,9 +1,25 @@
 import React, { Component } from 'react';
+import { RecommendWrapper, RecommendIrem } from '../style'
+import { connect } from 'react-redux'
 class Recommend extends Component {
-    state = {  }
-    render() { 
-        return ( <div>Recommend</div> );
+    state = {}
+    render() {
+        return (
+            <RecommendWrapper>
+                {this.props.recommendList.map((item) => {
+                    return (
+                        <RecommendIrem imgUrl={item.get('imgUrl')}>
+                            {item.get('title')+' >'}
+                        </RecommendIrem>
+                    )
+                })}
+            </RecommendWrapper>
+        );
     }
 }
- 
-export default Recommend;
+const mapStateToProps = (state) => {
+    return {
+        recommendList: state.getIn(['home', 'recommendList'])
+    }
+}
+export default connect(mapStateToProps, null)(Recommend);

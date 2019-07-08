@@ -1,6 +1,4 @@
 import Mock from 'mockjs';
-// import axios from 'axios';
-import React from 'react';
 
 const hotWord = (num) => {
     let listPool = [];
@@ -9,27 +7,41 @@ const hotWord = (num) => {
     }
     return { "data": listPool };
 }
+
+export const MockTopicData = () => {
+    return Mock.mock({
+        "topicList|8": [{  
+            'title': '@ctitle(2,4)',  
+            'id|+1': 1,  
+            'imgUrl': Mock.Random.dataImage('32x32','IMG')
+        }]
+    })
+}
+export const MockListData=()=>{
+    return Mock.mock({
+        "articleList|6":[{
+            "title":"@ctitle(10,20)",
+            "id|+1":1001,
+            "description":Mock.mock('@cparagraph(5)'),
+            "imgUrl":Mock.Random.dataImage('125x100','IMG')
+        }]
+    })
+}
+
+export const MockRecommendData=()=>{
+    return Mock.mock({
+        "recommendList|4":[{
+            "title":"@ctitle(4)",
+            "id|+1":1,
+            "imgUrl":Mock.Random.dataImage('280x50','')
+        }]
+    })
+}
+
+
 export const MockJsonData = () => {
     Mock.mock('api/json/hotword', hotWord(50));
     return (true);
 
 }
-export const MockTopicData = () => {
-    return Mock.mock({
-        // "topicList|+1": [
-        //     {
-        //         "topicListItem": {
-        //             "id|+1": 1,
-        //             "title|+1": Mock.Random.cword(1, 5),
-        //             "imgUrl|+1": Mock.Random.dataImage('32x32', '#50B347', '#FFF', 'Mock.js')
-        //         }
-        //     }]
-        "topicList|6": [{  
-            'title': '@ctitle(2,4)',  
-            'id|+1': 1,  
-            'imgUrl': Mock.Random.dataImage('32x32', '#50B347', '#FFF')
-        }]
-    })
-}
-
 // Mock.mock('api/json/test', data)

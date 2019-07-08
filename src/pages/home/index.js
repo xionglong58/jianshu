@@ -8,14 +8,14 @@ class Home extends Component {
     render() {
         return (
             <HomeWrapper>
-                <HomeRight>
+                <HomeLeft>
                     <Topic />
                     <List />
-                </HomeRight>
-                <HomeLeft>
+                </HomeLeft>
+                <HomeRight>
                     <Recommend />
                     <Writer/>
-                </HomeLeft>
+                </HomeRight>
             </HomeWrapper>
         );
     }
