@@ -1,0 +1,1 @@
+export const GET_HOME_API="get_home_data"

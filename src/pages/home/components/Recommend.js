@@ -8,7 +8,7 @@ class Recommend extends Component {
             <RecommendWrapper>
                 {this.props.recommendList.map((item) => {
                     return (
-                        <RecommendIrem imgUrl={item.get('imgUrl')}>
+                        <RecommendIrem imgUrl={item.get('imgUrl')}  key={item.get('title')}>
                             {item.get('title')+' >'}
                         </RecommendIrem>
                     )

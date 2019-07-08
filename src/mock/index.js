@@ -37,11 +37,15 @@ export const MockRecommendData=()=>{
         }]
     })
 }
-
+const homeApi={
+    topicList:MockTopicData(),
+    articleList:MockListData(),
+    recommendList:MockRecommendData()
+}
 
 export const MockJsonData = () => {
     Mock.mock('api/json/hotword', hotWord(50));
+    Mock.mock('api/homeApi', homeApi);    
     return (true);
-
 }
 // Mock.mock('api/json/test', data)
