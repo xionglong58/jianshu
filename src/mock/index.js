@@ -8,7 +8,7 @@ const hotWord = (num) => {
     return { "data": listPool };
 }
 
-export const MockTopicData = () => {
+const MockTopicData = () => {
     return Mock.mock({
         "topicList|8": [{  
             'title': '@ctitle(2,4)',  
@@ -17,7 +17,7 @@ export const MockTopicData = () => {
         }]
     })
 }
-export const MockListData=()=>{
+const MockListData=()=>{
     return Mock.mock({
         "articleList|6":[{
             "title":"@ctitle(10,20)",
@@ -28,7 +28,7 @@ export const MockListData=()=>{
     })
 }
 
-export const MockRecommendData=()=>{
+const MockRecommendData=()=>{
     return Mock.mock({
         "recommendList|4":[{
             "title":"@ctitle(4)",
@@ -42,12 +42,21 @@ const homeApi={
     articleList:MockListData(),
     recommendList:MockRecommendData()
 }
-
+export const detailApi=()=>{
+    // detailList:
+    return Mock.mock({
+        "detailList|1":[{
+            "title":"@ctitle(8,15)",
+            "id|+1":1,
+            "imgUrl":Mock.Random.dataImage('600x300','IMG'),
+            "article":Mock.Random.cparagraph(80,100)
+        }]
+    })
+}
 export const MockJsonData = () => {
     Mock.mock('api/json/hotword', hotWord(50));
     Mock.mock('api/homeApi', homeApi);     
     Mock.mock('api/homeApi/moreArticle', MockListData()); 
-    
+    // Mock.mock('api/detailApi', detailApi());    
     return (true);
 }
-// Mock.mock('api/json/test', data)

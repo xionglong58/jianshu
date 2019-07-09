@@ -19,7 +19,7 @@ const App = () => {
           <BrowserRouter>
           <Header />
             <Route path="/" exact component={Home}></Route>
-            <Route path="/detail" exact component={Detail}></Route>
+            <Route path="/detail/:id" exact component={Detail}></Route>
           </BrowserRouter>
           <div style={{ height: '100px', backgroundColor: '#008080' }}>footer</div>
         </Fragment>

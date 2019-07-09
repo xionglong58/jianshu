@@ -1,0 +1,1 @@
+export const GETARTICLADETAIL="detail/GETARTICLADETAIL";
