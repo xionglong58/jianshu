@@ -17,27 +17,50 @@ import {
 
 class Header extends PureComponent {
   showListArea(infoFocus) {
-    const { list, mouseEnter, page, totalPage, hanlleMouseEnter, hanlleMouseLeave, handleChangePage } = this.props;
-    const newList = list.toJS()
+    const {
+      list,
+      mouseEnter,
+      page,
+      totalPage,
+      hanlleMouseEnter,
+      hanlleMouseLeave,
+      handleChangePage
+    } = this.props;
+    const newList = list.toJS();
     const pageList = [];
     for (let i = (page - 1) * 10; i < page * 10; i++) {
       if (i >= newList.length) {
         break;
       }
       pageList.push(
-        <li key={newList[i]}><a href="/">{newList[i]}</a></li>
-      )
+        <li key={newList[i]}>
+          <a href="/">{newList[i]}</a>
+        </li>
+      );
     }
     if (infoFocus || mouseEnter) {
       return (
-        <SearchInfo onMouseEnter={hanlleMouseEnter} onMouseLeave={hanlleMouseLeave}>
+        <SearchInfo
+          onMouseEnter={hanlleMouseEnter}
+          onMouseLeave={hanlleMouseLeave}
+        >
           <div>
             热门搜索
-            <span onClick={() => handleChangePage(page, totalPage, this.iconSpin)}><span className="iconfont spin" ref={(spin) => { this.iconSpin = spin }}>&#xe617; </span><span>换一批</span></span>
+            <span
+              onClick={() => handleChangePage(page, totalPage, this.iconSpin)}
+            >
+              <span
+                className="iconfont spin"
+                ref={spin => {
+                  this.iconSpin = spin;
+                }}
+              >
+                &#xe617;{" "}
+              </span>
+              <span>换一批</span>
+            </span>
           </div>
-          <div className="info">
-            {pageList}
-          </div>
+          <div className="info">{pageList}</div>
         </SearchInfo>
       );
     }
@@ -56,22 +79,18 @@ class Header extends PureComponent {
           <NavItem className="right">
             <span className="iconfont">&#xe636;</span>
           </NavItem>
-          <NavItem className="right">登录</NavItem>
+          <Link>
+            <NavItem className="right">登录</NavItem>
+          </Link>
           <SearchWrapper>
-            <CSSTransition
-              in={focus}
-              classNames="slide"
-              timeout={200}
-            >
+            <CSSTransition in={focus} classNames="slide" timeout={200}>
               <NavSearch
                 className={focus ? "focused" : ""}
                 onFocus={() => handleInputFocus(list)}
                 onBlur={handleInputBlur}
               />
             </CSSTransition>
-            <span
-              className={focus ? "focused iconfont zoom" : "iconfont zoom"}
-            >
+            <span className={focus ? "focused iconfont zoom" : "iconfont zoom"}>
               &#xe60b;
             </span>
             {this.showListArea(focus)}
@@ -91,11 +110,11 @@ class Header extends PureComponent {
 
 const mapStateToProps = state => {
   return {
-    focus: state.getIn(['header', 'focus']),
-    mouseEnter: state.getIn(['header', 'mouseEnter']),
-    page: state.getIn(['header', 'page']),
-    totalPage: state.getIn(['header', 'totalPage']),
-    list: state.getIn(['header', 'list'])
+    focus: state.getIn(["header", "focus"]),
+    mouseEnter: state.getIn(["header", "mouseEnter"]),
+    page: state.getIn(["header", "page"]),
+    totalPage: state.getIn(["header", "totalPage"]),
+    list: state.getIn(["header", "list"])
   };
 };
 
@@ -111,23 +130,22 @@ const mapDispatchToProps = dispatch => {
       dispatch(actionCreators.getHeaderOnBlur());
     },
     hanlleMouseEnter() {
-      dispatch(actionCreators.getMouseEnterAction())
+      dispatch(actionCreators.getMouseEnterAction());
     },
     hanlleMouseLeave() {
-      dispatch(actionCreators.getMouseLeaveAction())
+      dispatch(actionCreators.getMouseLeaveAction());
     },
     handleChangePage(page, totalPage, iconSpin) {
-      let originAngle = iconSpin.style.transform.replace(/[^0-9]/ig, '');
+      let originAngle = iconSpin.style.transform.replace(/[^0-9]/gi, "");
       if (originAngle) {
         originAngle = parseInt(originAngle, 10);
       } else {
         originAngle = 0;
       }
-      iconSpin.style.transform = 'rotate(' + (originAngle + 360) + 'deg)';
+      iconSpin.style.transform = "rotate(" + (originAngle + 360) + "deg)";
       if (page < totalPage) {
         dispatch(actionCreators.getChangePage(page + 1));
-      }
-      else {
+      } else {
         dispatch(actionCreators.getChangePage(1));
       }
     }

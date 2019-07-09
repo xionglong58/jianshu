@@ -8,7 +8,9 @@ class Login extends Component {
       <LoginInWrapper>
         <LoginInBOx>
           <Input placeholder="账号" />
+          <span className="iconfont user">&#xe645;</span>
           <Input placeholder="密码" />
+          <span className="iconfont key">&#xe68b;</span>
           <Buttton>提交</Buttton>
         </LoginInBOx>
       </LoginInWrapper>

@@ -1,6 +1,3 @@
-import { createGlobalStyle}from 'styled-components' 
-
-export const GlobalIconfont=createGlobalStyle`
 @font-face {font-family: "iconfont";
   src: url('iconfont.eot?t=1562669014164'); /* IE9 */
   src: url('iconfont.eot?t=1562669014164#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -17,4 +14,32 @@ export const GlobalIconfont=createGlobalStyle`
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-`
+
+.iconspinner:before {
+  content: "\e617";
+}
+
+.iconfangdajing:before {
+  content: "\e60b";
+}
+
+.iconkey:before {
+  content: "\e68b";
+}
+
+.iconicon-user:before {
+  content: "\e645";
+}
+
+.iconadd:before {
+  content: "\e62a";
+}
+
+.iconAa:before {
+  content: "\e636";
+}
+
+.iconbiji:before {
+  content: "\e62d";
+}
+
