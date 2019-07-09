@@ -42,6 +42,15 @@ const homeApi={
     articleList:MockListData(),
     recommendList:MockRecommendData()
 }
+
+export const MockJsonData = () => {
+    Mock.mock('api/json/hotword', hotWord(50));
+    Mock.mock('api/homeApi', homeApi);     
+    Mock.mock('api/homeApi/moreArticle', MockListData()); 
+    // Mock.mock('api/detailApi', detailApi());    
+    return (true);
+}
+
 export const detailApi=()=>{
     // detailList:
     return Mock.mock({
@@ -53,10 +62,17 @@ export const detailApi=()=>{
         }]
     })
 }
-export const MockJsonData = () => {
-    Mock.mock('api/json/hotword', hotWord(50));
-    Mock.mock('api/homeApi', homeApi);     
-    Mock.mock('api/homeApi/moreArticle', MockListData()); 
-    // Mock.mock('api/detailApi', detailApi());    
-    return (true);
+
+
+export const writerApi=()=>{
+    return Mock.mock({
+        "writerList|6":[{
+            "name":"@cname()",
+            "word|10-99":100,
+            "like|10-99":100,               
+            "id|+1":10001,
+            "imgUrl":Mock.Random.dataImage('48x48','IMG')
+        }]
+    })
 }
+

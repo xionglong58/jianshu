@@ -14,7 +14,6 @@ const defaultData = fromJS({
 export default (state = defaultData, action) => {
   switch (action.type) {
     case actionTypes.GETARTICLADETAIL: {
-        console.log(action)
       return state.set("detailList", action.articleList );
     }
     default:
