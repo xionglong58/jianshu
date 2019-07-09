@@ -8,6 +8,7 @@ import store from './store/index';
 import Home from './pages/home';
 import Detail from './pages/detail';
 import { MockJsonData } from './mock';
+import Login from './pages/login'
 const App = () => {
   return (
     <Fragment>
@@ -20,8 +21,9 @@ const App = () => {
           <Header />
             <Route path="/" exact component={Home}></Route>
             <Route path="/detail/:id" exact component={Detail}></Route>
+            <Route path="/login" exact component={Login}></Route>            
           </BrowserRouter>
-          <div style={{ height: '100px', backgroundColor: '#008080' }}>footer</div>
+          {/* <div style={{ height: '100px', backgroundColor: '#008080' }}>footer</div> */}
         </Fragment>
       </Provider>
 
