@@ -67,7 +67,7 @@ class Header extends PureComponent {
     return null;
   }
   render() {
-    const { focus, handleInputFocus, handleInputBlur, list } = this.props;
+    const { focus, handleInputFocus, handleInputBlur, list, login } = this.props;
     return (
       <HeaderWrapper>
         <Link to="/">
@@ -79,9 +79,9 @@ class Header extends PureComponent {
           <NavItem className="right">
             <span className="iconfont">&#xe636;</span>
           </NavItem>
-          <Link>
-            <NavItem className="right">登录</NavItem>
-          </Link>
+
+          {!login ?<Link to='/login'><NavItem className="right">登录</NavItem></Link>:<NavItem className="right">退出</NavItem>}
+
           <SearchWrapper>
             <CSSTransition in={focus} classNames="slide" timeout={200}>
               <NavSearch
@@ -114,7 +114,8 @@ const mapStateToProps = state => {
     mouseEnter: state.getIn(["header", "mouseEnter"]),
     page: state.getIn(["header", "page"]),
     totalPage: state.getIn(["header", "totalPage"]),
-    list: state.getIn(["header", "list"])
+    list: state.getIn(["header", "list"]),
+    login: state.getIn(["login", "login"])
   };
 };
 

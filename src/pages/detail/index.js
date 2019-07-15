@@ -8,7 +8,6 @@ class Detail extends Component {
     this.props.handleArticleDetail(this.props.match.params);
   }
   render() {
-    // console.log(this.props.match.params)
     return (
       <DetailWrapper>
         <h3>{this.props.articleList.title}</h3>
