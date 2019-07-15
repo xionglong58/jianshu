@@ -2,6 +2,7 @@ import React, { PureComponent } from "react";
 import { CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
 import { actionCreators } from "./store/index";
+import {actionCreators as loginActionCreators} from '../../pages/login/store';
 import { Link } from "react-router-dom";
 import {
   HeaderWrapper,
@@ -80,7 +81,7 @@ class Header extends PureComponent {
             <span className="iconfont">&#xe636;</span>
           </NavItem>
 
-          {!login ?<Link to='/login'><NavItem className="right">登录</NavItem></Link>:<NavItem className="right">退出</NavItem>}
+          {!login ?<Link to='/login'><NavItem className="right">登录</NavItem></Link>:<NavItem className="right" onClick={this.props.logOut}>退出</NavItem>}
 
           <SearchWrapper>
             <CSSTransition in={focus} classNames="slide" timeout={200}>
@@ -149,6 +150,9 @@ const mapDispatchToProps = dispatch => {
       } else {
         dispatch(actionCreators.getChangePage(1));
       }
+    },
+    logOut(){
+      dispatch(loginActionCreators.getLoginOutAction());
     }
   };
 };
