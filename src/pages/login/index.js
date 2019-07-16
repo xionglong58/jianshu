@@ -1,11 +1,10 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { LoginInWrapper, LoginInBOx, Input, Buttton } from "./style";
 import { connect } from "react-redux";
 import { Redirect } from 'react-router-dom';
 import { actionCreators } from './store';
-class Login extends Component {
+class Login extends PureComponent {
   render() {
-    console.log(this.props.loginStatus, "notjing")
     if (!this.props.loginStatus) {
       return (
         <LoginInWrapper>

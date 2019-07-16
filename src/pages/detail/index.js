@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { DetailWrapper, Context } from "./style";
 import { connect } from "react-redux";
 import { actionCreators } from "./store";
 import { withRouter } from 'react-router-dom';
-class Detail extends Component {
+class Detail extends PureComponent {
   // state = {  }
   componentDidMount() {
     this.props.handleArticleDetail(this.props.match.params.id);

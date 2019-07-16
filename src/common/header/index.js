@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import { CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
 import { actionCreators } from "./store/index";
-import {actionCreators as loginActionCreators} from '../../pages/login/store';
+import { actionCreators as loginActionCreators } from '../../pages/login/store';
 import { Link } from "react-router-dom";
 import {
   HeaderWrapper,
@@ -81,7 +81,7 @@ class Header extends PureComponent {
             <span className="iconfont">&#xe636;</span>
           </NavItem>
 
-          {!login ?<Link to='/login'><NavItem className="right">登录</NavItem></Link>:<NavItem className="right" onClick={this.props.logOut}>退出</NavItem>}
+          {!login ? <Link to='/login'><NavItem className="right">登录</NavItem></Link> : <NavItem className="right" onClick={this.props.logOut}>退出</NavItem>}
 
           <SearchWrapper>
             <CSSTransition in={focus} classNames="slide" timeout={200}>
@@ -99,10 +99,12 @@ class Header extends PureComponent {
         </Nav>
         <Addition>
           <Button className="reg">注册</Button>
-          <Button className="write">
-            <span className="iconfont">&#xe62d;</span>
-            写文章
-          </Button>
+          <Link to='/write'>
+            <Button className="write">
+              <span className="iconfont">&#xe62d;</span>
+              写文章
+            </Button>
+          </Link>
         </Addition>
       </HeaderWrapper>
     );
@@ -151,7 +153,7 @@ const mapDispatchToProps = dispatch => {
         dispatch(actionCreators.getChangePage(1));
       }
     },
-    logOut(){
+    logOut() {
       dispatch(loginActionCreators.getLoginOutAction());
     }
   };

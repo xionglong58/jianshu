@@ -181,4 +181,5 @@ export const Button = styled.button`
     background: none;
     color: #f2a197;
   }
+  cursor:pointer;
 `;
