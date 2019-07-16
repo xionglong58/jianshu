@@ -20,7 +20,7 @@ class Login extends PureComponent {
     }
     else {
       return (
-        <Redirect to="/" />)
+        <Redirect to="/jianshu" />)
     }
   }
 }

@@ -75,7 +75,7 @@ class Header extends PureComponent {
     if (getApp) {
       return (
         <AppWrapper>
-          <Link to="/">
+          <Link to="/jianshu">
             <Logo onClick={handleCloseApp}/>
           </Link>
           <span className="iconfont" onClick={handleCloseApp}>
@@ -97,11 +97,11 @@ class Header extends PureComponent {
     } = this.props;
     return (
       <HeaderWrapper>
-        <Link to="/">
+        <Link to="/jianshu">
           <Logo />
         </Link>
         <Nav>
-          <Link to="/">
+          <Link to="/jianshu">
             <NavItem className="left active">首页</NavItem>
           </Link>
           <NavItem className="left" onClick={handleGetApp}>
@@ -112,7 +112,7 @@ class Header extends PureComponent {
           </NavItem>
 
           {!login ? (
-            <Link to="/login">
+            <Link to="/jianshu/login">
               <NavItem className="right">登录</NavItem>
             </Link>
           ) : (
@@ -138,7 +138,7 @@ class Header extends PureComponent {
         </Nav>
         <Addition>
           <Button className="reg">注册</Button>
-          <Link to="/write">
+          <Link to="/jianshu/write">
             <Button className="write">
               <span className="iconfont">&#xe62d;</span>
               写文章

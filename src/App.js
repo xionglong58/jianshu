@@ -20,11 +20,11 @@ const App = () => {
         <Fragment>
           <BrowserRouter>
             <Header />
-            <Route path="/" exact component={Home} />
-            <Route path="/detail/:id" exact component={Detail} />
-            <Route path="/login" exact component={Login} />
-            <Route path="/write" exact component={Write} />
-            
+            <Route path="/jianshu" exact component={Home} />
+            <Route path="/jianshu/detail/:id" exact component={Detail} />
+            <Route path="/jianshu/login" exact component={Login} />
+            <Route path="/jianshu/write" exact component={Write} />
+
           </BrowserRouter>
           {/* <div style={{ height: '100px', backgroundColor: '#008080' }}>footer</div> */}
         </Fragment>
