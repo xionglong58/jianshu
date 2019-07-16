@@ -6,7 +6,7 @@ import Header from "./common/header/index";
 import { GlobalIconfont } from "./static/iconfont/iconfont";
 import store from "./store/index";
 import Home from "./pages/home";
-import Detail from "./pages/detail";
+import Detail from "./pages/detail/loadable";
 import { MockJsonData } from "./mock";
 import Login from "./pages/login";
 const App = () => {

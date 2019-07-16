@@ -76,3 +76,11 @@ export const writerApi=()=>{
     })
 }
 
+export const loginApi=()=>{
+    return {
+        status:true
+    }
+}
+
+
+

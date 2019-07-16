@@ -2,16 +2,17 @@ import React, { Component } from "react";
 import { DetailWrapper, Context } from "./style";
 import { connect } from "react-redux";
 import { actionCreators } from "./store";
+import { withRouter } from 'react-router-dom';
 class Detail extends Component {
   // state = {  }
   componentDidMount() {
-    this.props.handleArticleDetail(this.props.match.params);
+    this.props.handleArticleDetail(this.props.match.params.id);
   }
   render() {
     return (
       <DetailWrapper>
         <h3>{this.props.articleList.title}</h3>
-        <img className="pic" src={this.props.articleList.imgUrl} alt={this.props.articleList.title}/>
+        <img className="pic" src={this.props.articleList.imgUrl} alt={this.props.articleList.title} />
         <Context>
           <p>{this.props.articleList.article}</p>
         </Context>
@@ -35,4 +36,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Detail);
+)(withRouter(Detail));
