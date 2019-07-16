@@ -12,7 +12,7 @@ class Writer extends PureComponent {
         else {
             alert("请先登录");
             return (
-                <Redirect to="/" />)
+                <Redirect to="/login" />)
         }
     }
 }

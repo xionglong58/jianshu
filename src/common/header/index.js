@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import { CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
 import { actionCreators } from "./store/index";
-import { actionCreators as loginActionCreators } from '../../pages/login/store';
+import { actionCreators as loginActionCreators } from "../../pages/login/store";
 import { Link } from "react-router-dom";
 import {
   HeaderWrapper,
@@ -13,7 +13,9 @@ import {
   Addition,
   Button,
   SearchWrapper,
-  SearchInfo
+  SearchInfo,
+  AppWrapper,
+  AppPic
 } from "./style";
 
 class Header extends PureComponent {
@@ -67,21 +69,57 @@ class Header extends PureComponent {
     }
     return null;
   }
+
+  showAppGetArea() {
+    const { getApp, handleCloseApp } = this.props;
+    if (getApp) {
+      return (
+        <AppWrapper>
+          <Link to="/">
+            <Logo onClick={handleCloseApp}/>
+          </Link>
+          <span className="iconfont" onClick={handleCloseApp}>
+            &#xe728;
+          </span>
+          <AppPic />
+        </AppWrapper>
+      );
+    }
+  }
   render() {
-    const { focus, handleInputFocus, handleInputBlur, list, login } = this.props;
+    const {
+      focus,
+      handleInputFocus,
+      handleInputBlur,
+      handleGetApp,
+      list,
+      login
+    } = this.props;
     return (
       <HeaderWrapper>
         <Link to="/">
           <Logo />
         </Link>
         <Nav>
-          <NavItem className="left active">首页</NavItem>
-          <NavItem className="left">下载App</NavItem>
+          <Link to="/">
+            <NavItem className="left active">首页</NavItem>
+          </Link>
+          <NavItem className="left" onClick={handleGetApp}>
+            下载App
+          </NavItem>
           <NavItem className="right">
             <span className="iconfont">&#xe636;</span>
           </NavItem>
 
-          {!login ? <Link to='/login'><NavItem className="right">登录</NavItem></Link> : <NavItem className="right" onClick={this.props.logOut}>退出</NavItem>}
+          {!login ? (
+            <Link to="/login">
+              <NavItem className="right">登录</NavItem>
+            </Link>
+          ) : (
+            <NavItem className="right" onClick={this.props.logOut}>
+              退出
+            </NavItem>
+          )}
 
           <SearchWrapper>
             <CSSTransition in={focus} classNames="slide" timeout={200}>
@@ -95,11 +133,12 @@ class Header extends PureComponent {
               &#xe60b;
             </span>
             {this.showListArea(focus)}
+            {this.showAppGetArea()}
           </SearchWrapper>
         </Nav>
         <Addition>
           <Button className="reg">注册</Button>
-          <Link to='/write'>
+          <Link to="/write">
             <Button className="write">
               <span className="iconfont">&#xe62d;</span>
               写文章
@@ -118,7 +157,8 @@ const mapStateToProps = state => {
     page: state.getIn(["header", "page"]),
     totalPage: state.getIn(["header", "totalPage"]),
     list: state.getIn(["header", "list"]),
-    login: state.getIn(["login", "login"])
+    login: state.getIn(["login", "login"]),
+    getApp: state.getIn(["header", "getApp"])
   };
 };
 
@@ -155,6 +195,12 @@ const mapDispatchToProps = dispatch => {
     },
     logOut() {
       dispatch(loginActionCreators.getLoginOutAction());
+    },
+    handleGetApp() {
+      dispatch(actionCreators.getAppDownloadAction());
+    },
+    handleCloseApp() {
+      dispatch(actionCreators.getAppCloseAction());
     }
   };
 };

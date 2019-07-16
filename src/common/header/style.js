@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import logo from "../../static/nav-logo.png";
+import app from "../../static/download-apps.png";
 
 export const HeaderWrapper = styled.div`
   position: relative;
@@ -16,7 +17,7 @@ export const Logo = styled.div`
   width: 100px;
   background: url(${logo});
   background-size: contain;
-  cursor:pointer;
+  cursor: pointer;
 `;
 export const Nav = styled.div`
   width: 50%;
@@ -44,7 +45,7 @@ export const NavItem = styled.div`
   &.active {
     color: #e76d5d;
   }
-  cursor:pointer;
+  cursor: pointer;
 `;
 export const SearchWrapper = styled.div`
   float: left;
@@ -53,7 +54,7 @@ export const SearchWrapper = styled.div`
   height: 36px;
   margin-top: 10px;
   height: 36px;
-  .zoom{
+  .zoom {
     position: absolute;
     right: 6px;
     bottom: 1px;
@@ -71,11 +72,11 @@ export const SearchWrapper = styled.div`
 `;
 export const SearchInfo = styled.div`
   position: absolute;
-  Z-index:10;
+  z-index: 10;
   left: 0px;
   top: 40px;
   margin-top: 9px;
-  padding-bottom:9px;
+  padding-bottom: 9px;
   // height: 200px;
   width: 220px;
   background-color: #fff;
@@ -85,44 +86,42 @@ export const SearchInfo = styled.div`
     font-size: 14px;
     margin-top: 20px;
     margin-left: 10px;
-    &.info{
-      margin:20px;
+    &.info {
+      margin: 20px;
     }
   }
   span {
     float: right;
     font-size: 13px;
     margin-right: 10px;
-    cursor:pointer;
+    cursor: pointer;
   }
   div li {
     list-style: none;
-    line-height:20px;
-    float:left;
+    line-height: 20px;
+    float: left;
     display: inline;
     padding: 2px 4px;
     border-radius: 3px;
     font-size: 12px;
     margin-right: 15px;
-    margin-top:10px;
-    border: 1px solid #969696;  
+    margin-top: 10px;
+    border: 1px solid #969696;
   }
-  .spin{
-    dispaly:block;
-    transition:all 0.4s ease-in;
-    transform-origin:center center;
-    transform:rotate(90deg);
+  .spin {
+    dispaly: block;
+    transition: all 0.4s ease-in;
+    transform-origin: center center;
+    transform: rotate(90deg);
   }
   a {
     color: #969696;
-    text-decoration: none;    
+    text-decoration: none;
   }
-  a:link ,
+  a:link,
   a:visited,
   a:focus,
-  a:hover,
-
-  {
+  a:hover {
     color: #2f2f2f;
     text-decoration: none;
   }
@@ -181,5 +180,32 @@ export const Button = styled.button`
     background: none;
     color: #f2a197;
   }
+  cursor: pointer;
+`;
+export const AppWrapper = styled.div`
+  height: 600px;
+  width: 600px;
+  position:fixed;
+  background-color:#eeeeee;
+  border:1px solid rgb(225,225,225);
+  border-radius:5px;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  z-index:10;
+  box-shadow:10px 10px 5px rgb(225,225,225);
+.iconfont{
+  float:right;
+  margin:0px 10px;
+  color:#e45d51;
   cursor:pointer;
+}
+`;
+export const AppPic = styled.div`
+  height: 600px;
+  width: 600px;
+  background: url(${app});
+  background-size: 200px 200px;
+  background-repeat: no-repeat;
+  background-position: center center;
 `;
